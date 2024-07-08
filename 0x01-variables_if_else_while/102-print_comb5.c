@@ -27,16 +27,16 @@ int main(void)
 				ones2 = (tens2 == tens1) ? ones1 + 1 : 0;
 				while (ones2 <= 9)
 				{
+					if (!(tens1 == 0 && ones1 == 0 && tens2 == 0 && ones2 == 0))
+					{
+						putchar(',');
+						putchar(' ');
+					}
 					putchar(tens1 + '0');
 					putchar(ones1 + '0');
 					putchar(' ');
 					putchar(tens2 + '0');
 					putchar(ones2 + '0');
-					if (!(tens1 == 9 && ones1 == 9 && tens2 == 9 && ones2 == 9))
-					{
-						putchar(',');
-						putchar(' ');
-					}
 					ones2++;
 				}
 				tens2++;
