@@ -1,52 +1,33 @@
 #include <stdio.h>
 
 /**
- * main - Entry point
- *
- * Description: Prints all possible combinations of two two-digit numbers
- * Numbers should range from 00 to 99
- * The two numbers should be separated by a space
- * Numbers should be printed in ascending order
- * Combinations like 00 01 and 01 00 are considered the same
- *
+ * main - prints all possible combinations of two two-digit numbers
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-	int tens1, ones1, tens2, ones2;
+	int i, j;
 
-	tens1 = 0;
-	while (tens1 <= 9)
+	for (i = 0; i < 100; i++)
 	{
-		ones1 = 0;
-		while (ones1 <= 9)
+		for (j = 0; j < 100; j++)
 		{
-			tens2 = tens1;
-			while (tens2 <= 9)
+			if (i < j)
 			{
-				ones2 = (tens2 == tens1) ? ones1 + 1 : 0;
-				while (ones2 <= 9)
+				putchar((i / 10) + 48);
+				putchar((i % 10) + 48);
+				putchar(' ');
+				putchar((j / 10) + 48);
+				putchar((j % 10) + 48);
+				if (i != 98 || j != 99)
 				{
-					if (!(tens1 == 0 && ones1 == 0 && tens2 == 0 && ones2 == 0))
-					{
-						putchar(',');
-						putchar(' ');
-					}
-					putchar(tens1 + '0');
-					putchar(ones1 + '0');
+					putchar(',');
 					putchar(' ');
-					putchar(tens2 + '0');
-					putchar(ones2 + '0');
-					ones2++;
 				}
-				tens2++;
 			}
-			ones1++;
+
 		}
-		tens1++;
 	}
 	putchar('\n');
-
 	return (0);
 }
-
